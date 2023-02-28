@@ -18,6 +18,12 @@ std::optional<std::string> f2(int val)
     return "some string";
 }
 
+std::optional<std::string> f2Null(int val)
+{
+    std::cout << "call f2Null with arg " << val << std::endl;
+    return std::nullopt;
+}
+
 std::optional<std::string> f3(double t, std::string v)
 {
     std::cout << "call f3 with args " << t << " and " << v << std::endl;
@@ -40,3 +46,19 @@ call f1
 call f2 with arg 3
 call f3 with args 0.1 and some other
 ```
+
+or use that
+```cpp
+using namespace metafunc;
+
+tryThis(f1)
+  .than(f2Null)
+  .than(f3, 0.1, "some other");
+```
+
+output:
+```
+call f1
+call f2Null with arg 3
+```
+
