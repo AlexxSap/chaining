@@ -33,7 +33,7 @@ public:
         res_(r) { }
 
     template <typename F>
-    Chaining<get_optional_t<std::invoke_result_t<F, V>>> than(F f)
+    Chaining<get_optional_t<std::invoke_result_t<F, V>>> then(F f)
     {
         static_assert(std::is_invocable_v<F, V>, "not a function");
         if(!res_.has_value())
@@ -51,7 +51,7 @@ public:
     }
 
     template <typename F, class... Args>
-    Chaining<get_optional_t<std::invoke_result_t<F, Args...>>> than(F f, Args... a)
+    Chaining<get_optional_t<std::invoke_result_t<F, Args...>>> then(F f, Args... a)
     {
         static_assert(std::is_invocable_v<F, Args...>, "not a function");
         if(!res_.has_value())
