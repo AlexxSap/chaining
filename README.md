@@ -36,8 +36,8 @@ and use
 using namespace metafunc;
 
 tryThis(f1)
-  .than(f2)
-  .than(f3, 0.1, "some other");
+  .then(f2)
+  .then(f3, 0.1, "some other");
 ```
 
 output:
@@ -52,8 +52,8 @@ or use that
 using namespace metafunc;
 
 tryThis(f1)
-  .than(f2Null)
-  .than(f3, 0.1, "some other");
+  .then(f2Null)
+  .then(f3, 0.1, "some other");
 ```
 
 output:
